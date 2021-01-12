@@ -6,11 +6,11 @@ Start: 	MOV SP,#30H  			;將堆疊指標初值置於位元定址區之上。
 		MOV PSW,#00000000B		;選擇使用 Register Bank 0。
 		MOV SCON,#01000000B 	;串列通訊模式 1，8-Bit UART, Baud Rate 可變。 
 								;SCON: Serial Communication Control Register
-								; 		SM0  SM1  SM2  REN  TB8  RB8  TI  RI
-								; MODE0  0    0	   致   致		同		傳  接
-								; MODE1  0    1    能   能		位		送  收
-								; MODE2  1    0   	    接		位		完  完
-								; MODE3  1    1			收		元		成  成
+								; 	SM0  SM1  SM2  REN  TB8  RB8  TI  RI
+								; MODE0  0    0	   致   致   同	    傳  接
+								; MODE1  0    1    能   能   位	    送  收
+								; MODE2  1    0   	    接	 位   完  完
+								; MODE3  1    1		    收	 元   成  成
 
 		MOV TMOD,#00100000B		;TIMER1 8-Bit Auto-Reload（模式 2）。
 		ORL PCON,#10000000B 	;將 SMOD（i.e., PCON.7）設為 1＝>雙倍鮑率。
